@@ -1,0 +1,7 @@
+[*.cs]
+
+# IDE0058: Значение выражения никогда не используется
+csharp_style_unused_value_expression_statement_preference = unused_local_variable
+
+# CS8714: Тип не может быть использован как параметр типа в универсальном типе или методе. Допустимость значения NULL для аргумента типа не соответствует ограничению "notnull".
+dotnet_diagnostic.CS8714.severity = suggestion

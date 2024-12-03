@@ -1,0 +1,17 @@
+e:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\TelegramBot.csproj.AssemblyReference.cache
+e:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\TelegramBot.GeneratedMSBuildEditorConfig.editorconfig
+e:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\TelegramBot.AssemblyInfoInputs.cache
+e:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\TelegramBot.AssemblyInfo.cs
+e:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\TelegramBot.csproj.CoreCompileInputs.cache
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\bin\Debug\net9.0\TelegramBot.exe
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\bin\Debug\net9.0\TelegramBot.deps.json
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\bin\Debug\net9.0\TelegramBot.runtimeconfig.json
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\bin\Debug\net9.0\TelegramBot.dll
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\bin\Debug\net9.0\TelegramBot.pdb
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\bin\Debug\net9.0\Telegram.Bot.dll
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\Telegram.C5E56D06.Up2Date
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\TelegramBot.dll
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\refint\TelegramBot.dll
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\TelegramBot.pdb
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\TelegramBot.genruntimeconfig.cache
+E:\My\Project\Visual Studio Code\TelegramBot\TelegramBot\obj\Debug\net9.0\ref\TelegramBot.dll
