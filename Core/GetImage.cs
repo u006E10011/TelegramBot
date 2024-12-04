@@ -9,7 +9,7 @@ namespace TelegramBot.Core
 	{
 		public static async Task GetImageForURL(Message message)
 		{
-			if (Data.Data.TryGetValue(message.Text ?? "", out var url))
+			if (Data.ImageData.Instance.TryGetValue(message.Text ?? "", out var url))
 			{
 				if (!System.IO.File.Exists(url))
 					return;

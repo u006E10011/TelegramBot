@@ -1,20 +1,27 @@
 using TelegramBot.Core;
-using System.IO;
 
 namespace TelegramBot.Data
 {
-	public static class ImageData
+	public class ImageData : Data
 	{
-		public static void Init()
+		private ImageData() : base(Value, Constanc.DATA_JSON_NAME_IMAGE, Constanc.DESTINATION_IMAGE_PATH) { }
+		static ImageData()
+		{
+			_instance = new();
+			_instance.Init();
+			_instance.Save();
+		}
+
+		private static ImageData? _instance;
+		public  static ImageData? Instance => _instance;
+
+		public static Dictionary<string, string> Value { get; private set; } = [];
+
+		public new void Init()
 		{
 			Add("logo", "logo.jpg");
 			Add("logoChat", "ChatLogo.jpg");
+			Add("artem", "artem.jpg");
 		}
-		
-		private static void Add(string key, string name)
-		{
-			Data.Add(key, Constanc.DESTINATION_IMAGE_PATH + name);
-		}
-		
 	}
 }

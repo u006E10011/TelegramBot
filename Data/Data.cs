@@ -2,37 +2,56 @@ using TelegramBot.Core;
 
 namespace TelegramBot.Data
 {
-	public static class Data
+	public class Data
 	{
-		public static Dictionary<string, string> Value { get; private set; } = new();
+#pragma warning disable CS8618
+		public Data() { }
+#pragma warning restore CS8618
 
-		public static async Task Init()
+		public Data(Dictionary<string, string> data, string dataJsonName, string path = "")
+		{
+			_value = data;
+			_pathSaveResources = path;
+			_dataJsonName = dataJsonName;
+		}
+
+		private Dictionary<string, string> _value = new();
+		private string _pathSaveResources;
+		private string _dataJsonName;
+
+		public async Task Init()
 		{
 			await Task.Run(() =>
 			{
-				ImageData.Init();
+				ImageData.Instance?.Init();
 				GIFData.Init();
-				TextData.Init();
-
-				DataSaver.Save(Constanc.DATA_NAME, Value);
+				TextData.Instance?.Init();
 			});
 		}
 
-		public static void Add(string key, string value)
+		public void Save()
 		{
-			Value.Add(key.ToLower(), value);
+			DataSaver.Save(Constanc.DATA_FOLDER_PATH + _dataJsonName, _value);
 		}
 
-		public static void Remove(string key)
+		#region Body
+		public void Add(string key, string value)
 		{
-			Value.Remove(key.ToLower());
+			_value.Add(key.ToLower(), _pathSaveResources + value);
 		}
 
-		public static bool TryGetValue(string key, out string value)
+		public void Remove(string key)
+		{
+			_value.Remove(key.ToLower());
+		}
+
+		public bool TryGetValue(string key, out string value)
 		{
 #pragma warning disable CS8601 // Возможно, назначение-ссылка, допускающее значение NULL.
-			return Value.TryGetValue(key.ToLower(), out value);
+			return _value.TryGetValue(key.ToLower(), out value);
 #pragma warning restore CS8601 // Возможно, назначение-ссылка, допускающее значение NULL.
 		}
+		#endregion
+
 	}
 }

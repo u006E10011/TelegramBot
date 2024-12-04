@@ -29,7 +29,7 @@ namespace TelegramBot.Core
 				if (CommandHandler.GetCommand(message).Result)
 					return;
 
-				if (Data.Data.TryGetValue((message.Text ?? "").ToLower(), out var text))
+				if (TextData.Instance.TryGetValue((message.Text ?? "").ToLower(), out var text))
 				{
 					var result = $"{message?.From?.FirstName}: {text}";
 					Console.WriteLine(result);

@@ -7,7 +7,7 @@ namespace TelegramBot.Data
 {
 	public class DataSaver
 	{
-		public static void Save(string dataName, object data)
+		public static void Save(string path, object data)
 		{
 			var options = new JsonSerializerOptions()
 			{
@@ -18,7 +18,7 @@ namespace TelegramBot.Data
 			};
 			
 			var json = JsonSerializer.Serialize(data, options);
-			File.WriteAllText(Constanc.DATA_PATH + dataName, json);
+			File.WriteAllText(path, json);
 			
 			//System.Console.WriteLine("Data:\n" + json);
 		}

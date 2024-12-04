@@ -15,7 +15,7 @@ namespace TelegramBot.Core
 		Чат: @u8bitincchat";
 
 		private const string GREETING =
-		@"Привет, этот бот находится в стадии разработки
+		@"В данный момент бот находится в стадии разработки
 		Используй команду /help, чтобы получить список доступных комманд";
 
 		public const string GET_COMMAND =
@@ -31,9 +31,9 @@ namespace TelegramBot.Core
 				case "/start":
 					await Message(message.Chat, GREETING);
 					return true;
-				case "/info":
-					await Message(message.Chat, INFO);
-					return true;
+				// case "/info":
+				// 	await Message(message.Chat, INFO);
+				// 	return true;
 				case "/help":
 					await Message(message.Chat, GET_COMMAND);
 					return true;

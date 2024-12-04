@@ -25,7 +25,6 @@ namespace TelegramBot.Core
 			CTS = new CancellationTokenSource();
 			BotClient = new(TOKEN, cancellationToken: CTS.Token);
 			Me = await BotClient.GetMe();
-			await Data.Data.Init();
 
 			BotClient.OnError += ExceptionHandler.OnError;
 			BotClient.OnUpdate += UpdateHandler.OnUpdate;
