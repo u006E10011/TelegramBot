@@ -12,22 +12,31 @@ namespace TelegramBot.Core
 		{
 			var message = update.Message;
 
-			if (message.Text != null)
+			if (message?.Text != null)
 			{
-				await TextHandler(message, TextData.Instance);
+				await TextHandler(message);
+				await GetImage.GetImageForURL(message);
 				return;
 			}
 		}
 
-		private static async Task TextHandler(Message message, TelegramBot.Data.Data data)
+		private static async Task TextHandler(Message message)
 		{
-			if (data.TryGetValue((message.Text ?? "").ToLower(), out var text))
+			await Task.Run(() =>
 			{
-				var result = $"{message.From.FirstName}: {text}";
-				Console.WriteLine(result);
-				
-				await BotClient.SendMessage(message.Chat.Id, result, cancellationToken: CTS.Token);
-			}
+				System.Console.WriteLine("Input: " + message.Text);
+
+				if (CommandHandler.GetCommand(message).Result)
+					return;
+
+				if (Data.Data.TryGetValue((message.Text ?? "").ToLower(), out var text))
+				{
+					var result = $"{message?.From?.FirstName}: {text}";
+					Console.WriteLine(result);
+
+					//await BotClient.SendMessage(message?.Chat?.Id ?? new Chat().Id, result, cancellationToken: CTS.Token);
+				}
+			});
 		}
 	}
 }

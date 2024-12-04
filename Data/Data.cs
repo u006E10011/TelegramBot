@@ -1,33 +1,37 @@
+using TelegramBot.Core;
+
 namespace TelegramBot.Data
 {
-	public class Data : IData
+	public static class Data
 	{
-		private static Data _instance = new();
-		public static Data Instance 
-		{
-			get => _instance ?? new();
-		}
-		
-		public Dictionary<string, string> _text = new()
-		{
-			{ "привет", "Привет" },
-			{ "hello", "Hello"}
-		};
+		public static Dictionary<string, string> Value { get; private set; } = new();
 
-		public void Add(string key, string value)
+		public static async Task Init()
 		{
-			_text.Add(key, value);
+			await Task.Run(() =>
+			{
+				ImageData.Init();
+				GIFData.Init();
+				TextData.Init();
+
+				DataSaver.Save(Constanc.DATA_NAME, Value);
+			});
 		}
 
-		public void Remove(string key)
+		public static void Add(string key, string value)
 		{
-			_text.Remove(key);
+			Value.Add(key.ToLower(), value);
 		}
 
-		public bool TryGetValue(string key, out string value)
+		public static void Remove(string key)
+		{
+			Value.Remove(key.ToLower());
+		}
+
+		public static bool TryGetValue(string key, out string value)
 		{
 #pragma warning disable CS8601 // Возможно, назначение-ссылка, допускающее значение NULL.
-			return _text.TryGetValue(key, out value);
+			return Value.TryGetValue(key.ToLower(), out value);
 #pragma warning restore CS8601 // Возможно, назначение-ссылка, допускающее значение NULL.
 		}
 	}

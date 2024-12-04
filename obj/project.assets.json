@@ -468,11 +468,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\My\\Project\\Visual Studio Code\\TelegramBot\\TelegramBot\\TelegramBot.csproj",
+      "projectUniqueName": "E:\\My\\Project\\Visual Studio Code\\TelegramBot\\TelegramBot.csproj",
       "projectName": "TelegramBot",
-      "projectPath": "E:\\My\\Project\\Visual Studio Code\\TelegramBot\\TelegramBot\\TelegramBot.csproj",
+      "projectPath": "E:\\My\\Project\\Visual Studio Code\\TelegramBot\\TelegramBot.csproj",
       "packagesPath": "C:\\Users\\clove\\.nuget\\packages\\",
-      "outputPath": "E:\\My\\Project\\Visual Studio Code\\TelegramBot\\TelegramBot\\obj\\",
+      "outputPath": "E:\\My\\Project\\Visual Studio Code\\TelegramBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\clove\\AppData\\Roaming\\NuGet\\NuGet.Config"

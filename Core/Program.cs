@@ -4,6 +4,7 @@ using Telegram.Bot.Types.Enums;
 using System;
 
 using static TelegramBot.Core.Constanc;
+using TelegramBot.Data;
 
 namespace TelegramBot.Core
 {
@@ -23,21 +24,21 @@ namespace TelegramBot.Core
 		{
 			CTS = new CancellationTokenSource();
 			BotClient = new(TOKEN, cancellationToken: CTS.Token);
-			
 			Me = await BotClient.GetMe();
-			
+			await Data.Data.Init();
+
 			BotClient.OnError += ExceptionHandler.OnError;
 			BotClient.OnUpdate += UpdateHandler.OnUpdate;
-
 			Exit();
 		}
 
 		private void Exit()
 		{
-			var input = Console.ReadLine();
-
-			if (input?.ToLower() == EXIT_COMMNAD)
+			while (Console.ReadKey().Key == ConsoleKey.Escape)
+			{
+				System.Console.WriteLine("Disable bot");
 				CTS.Cancel();
+			}
 		}
 	}
 }

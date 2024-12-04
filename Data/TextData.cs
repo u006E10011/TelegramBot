@@ -1,7 +1,11 @@
 namespace TelegramBot.Data
 {
-	public class TextData : Data
+	public static class TextData
 	{
-
+		public static void Init()
+		{
+			Data.Add("привет", "Привет");
+			Data.Add("Hello", "Hello");
+		}
 	}
 }

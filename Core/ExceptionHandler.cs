@@ -7,7 +7,7 @@ namespace TelegramBot.Core
 	{
 		public static async Task OnError(Exception exception, HandleErrorSource source)
 		{
-			await Task.Run(() => Console.WriteLine("", exception.Message));
+			await Task.Run(() => Console.WriteLine(exception.Message));
 		}
 	}
 }
