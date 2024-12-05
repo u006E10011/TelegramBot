@@ -4,7 +4,7 @@ namespace TelegramBot.Data
 {
 	public class ImageData : Data
 	{
-		private ImageData() : base(Value, Constanc.DATA_JSON_NAME_IMAGE, Constanc.DESTINATION_IMAGE_PATH) { }
+		private ImageData() : base(Value, Constanc.DATA_JSON_NAME_IMAGE, Constanc.DESTINATION_KEY_IMAGE_PATH) { }
 		static ImageData()
 		{
 			_instance = new();
@@ -21,7 +21,6 @@ namespace TelegramBot.Data
 		{
 			Add("logo", "logo.jpg");
 			Add("logoChat", "ChatLogo.jpg");
-			Add("artem", "artem.jpg");
 		}
 	}
 }

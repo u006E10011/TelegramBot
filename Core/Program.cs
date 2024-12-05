@@ -1,10 +1,7 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
-using System;
 
 using static TelegramBot.Core.Constanc;
-using TelegramBot.Data;
 
 namespace TelegramBot.Core
 {

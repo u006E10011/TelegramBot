@@ -26,7 +26,7 @@ namespace TelegramBot.Data
 				ImageData.Instance?.Init();
 				GIFData.Init();
 				TextData.Instance?.Init();
-			});
+			});			
 		}
 
 		public void Save()

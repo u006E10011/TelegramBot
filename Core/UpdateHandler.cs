@@ -1,5 +1,6 @@
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 using TelegramBot.Data;
 
 using static TelegramBot.Core.Program;
@@ -15,7 +16,7 @@ namespace TelegramBot.Core
 			if (message?.Text != null)
 			{
 				await TextHandler(message);
-				await GetImage.GetImageForURL(message);
+				await GetImage.GetImageForKey(message);
 				return;
 			}
 		}
@@ -33,8 +34,12 @@ namespace TelegramBot.Core
 				{
 					var result = $"{message?.From?.FirstName}: {text}";
 					Console.WriteLine(result);
-
-					//await BotClient.SendMessage(message?.Chat?.Id ?? new Chat().Id, result, cancellationToken: CTS.Token);
+					BotClient.SendMessage(
+						message?.Chat.Id ?? new Chat().Id,
+						text,
+						ParseMode.Html,
+						replyParameters: message.Id,
+					  	cancellationToken: CTS.Token);
 				}
 			});
 		}

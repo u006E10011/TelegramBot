@@ -1,9 +1,10 @@
-using System.Diagnostics.CodeAnalysis;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using TelegramBot.Data;
+using Telegram.Bot.Types.ReplyMarkups;
+
 using static TelegramBot.Core.Program;
+using static TelegramBot.Core.Constanc;
 
 namespace TelegramBot.Core
 {
@@ -22,32 +23,42 @@ namespace TelegramBot.Core
 		@"Список команд:
 		/start - Приветсвие
 		/info - Информация о боте
-		/help - Выводит список команд";
+		/help - Выводит список команд
+		/picture - случайная пикча";
 
 		public static async Task<bool> GetCommand(Message message)
 		{
 			switch (message.Text)
 			{
 				case "/start":
-					await Message(message.Chat, GREETING);
+					await Message(message, GREETING);
 					return true;
-				// case "/info":
-				// 	await Message(message.Chat, INFO);
-				// 	return true;
+				case "/info":
+					await BotClient.SendMessage(message.Chat, INFO,
+						replyMarkup: new InlineKeyboardMarkup()
+						.AddButtons(
+							InlineKeyboardButton.WithUrl("Канал", CHANEL),
+							InlineKeyboardButton.WithUrl("Чат", CHAT)));
+
+					await BotClient.DeleteMessage(message.Chat.Id, message.Id);
+					return true;
 				case "/help":
-					await Message(message.Chat, GET_COMMAND);
+					await Message(message, GET_COMMAND);
 					return true;
-				case "/addText":
-					System.Console.WriteLine("Null command add text");
+				case "/picture":
+					await GetImage.GetRandomImage(message);
+					//await BotClient.DeleteMessage(message.Chat.Id, message.Id);
 					return true;
+
 			}
 
 			return false;
 		}
 
-		private static async Task Message(Chat chat, string message)
+		private static async Task Message(Message message, string msg)
 		{
-			await BotClient.SendMessage(chat.Id, message, ParseMode.Html, protectContent: true);
+			await BotClient.SendMessage(message.Chat.Id, msg, ParseMode.Html, protectContent: true);
+			await BotClient.DeleteMessage(message.Chat.Id, message.Id);
 		}
 	}
 }
