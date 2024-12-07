@@ -10,7 +10,7 @@ namespace TelegramBot.Core
 
 		#region Core
 		public const long MY_CHAT_ID = 1497027902;
-		public const string TOKEN = "7545432227:AAGOpFvXG2Mp5agPkEfSxXH7LWvion0Ak5c";
+		public const string TOKEN = "";
 		#endregion
 
 		#region Path
